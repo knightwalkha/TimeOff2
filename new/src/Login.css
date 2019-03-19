@@ -1,0 +1,136 @@
+* {
+    margin: 0;
+    padding: 0
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: url("./components/images/aidan-feddersen-1287897-unsplash.jpg");
+    background-size: cover;
+    background-position: center;
+    font-family: sans-serif
+}
+
+.loginBox {
+  width: 320px;
+  height: 420px;
+  background: rgba(0,0,0,0.5);
+  color: #fff;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  box-sizing: border-box  ;
+  padding: 70px 30px
+}
+
+h1 {
+    margin: 0;
+    padding: 0 0 20px;
+    text-align: center;
+    font-size: 22px
+}
+
+.loginBox p {
+    margin: 0;
+    padding: 0;
+    font-weight: bold
+}
+
+.loginBox input {
+    width: 100%;
+    margin-bottom: 20px
+}
+
+.loginBox input[type="text"], input[type="password"] {
+    border: none;
+    border-bottom: 1px solid #fff;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color: #fff;
+    font-size: 16px
+}
+
+.loginBox input[type="submit"] {
+    border: none;
+    outline: none;
+    height: 40px;
+    background: #1c8adb;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 20px
+}
+
+.loginBox input[type="submit"]:hover {
+    cursor: pointer;
+    background: #39dc79;
+    color: #000
+}
+
+.loginBox a {
+    text-decoration: none;
+    font-size: 14px;
+    color: #fff
+}
+
+.loginBox a:hover {
+    color: #39dc79
+}
+
+.Footer {
+    display: flex;
+    justify-content: center;
+    padding: 2px;
+    background-color: rgb(0, 0, 0);
+    color: rgb(245, 245, 245);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 8vh;
+    background-color: rgb(0, 0, 0);
+    font-family: 'poppins', sans-serif
+}
+
+#navbarMenu1 li {
+    color: rgb(226,226,226);
+    letter-spacing: 5px;
+    font-size: 20px;
+    font-family: 'poppins', sans-serif;
+}
+
+.logo a {
+    color: rgb(226,226,226);
+    letter-spacing: 5px;
+    font-size: 20px;
+    font-family: 'poppins', sans-serif;
+}
+
+
+#navbarMenu {
+    color: rgb(226,226,226);
+    text-decoration: none;
+    letter-spacing: 2px;
+    font-size: 12px;
+    font-weight: bold
+}
+
+#navbarMenu a {
+    color: rgb(226,226,226);
+    text-decoration: none;
+    letter-spacing: 2px;
+    font-size: 12px;
+    font-weight: bold
+}
+
+#span {
+    background-color: rgb(226,226,226) 
+}

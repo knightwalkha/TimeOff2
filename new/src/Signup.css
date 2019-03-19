@@ -1,0 +1,140 @@
+* {
+  margin: 0;
+  padding: 0
+}
+
+body {
+  background: url("./components/images/aidan-feddersen-1287897-unsplash.jpg");
+  height: 100%;
+  background-size: cover;
+  background-position: center,center;
+  background-attachment: fixed;
+  min-height: calc(100% - 171px);
+  position: relative;
+  font-family: sans-serif;
+  background-repeat: no-repeat;padding-bottom: 171px
+}
+
+.loginBox {
+width: 500px;
+height: 960px;
+background: rgba(0,0,0,0.5);
+color: #fff;
+top: 50%;
+left: 50%;
+position: absolute;
+transform: translate(-50%, -50%);
+box-sizing: border-box  ;
+padding: 70px 30px
+}
+
+h1 {
+  margin: 0;
+  padding: 0 0 20px;
+  text-align: center;
+  font-size: 30px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+
+h4 {
+  margin: 0;
+  padding: 0 0 20px;
+  text-align: center;
+  font-size: 22px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+
+.loginBox p {
+  margin: 0;
+  padding: 0;
+  font-weight: bold
+}
+
+.loginBox input {
+  width: 100%;
+  margin-bottom: 20px
+}
+
+.loginBox input[type="text"], input[type="password"] {
+  border: none;
+  border-bottom: 1px solid #fff;
+  background: transparent;
+  outline: none;
+  height: 40px;
+  color: #fff;
+  font-size: 16px
+}
+
+.loginBox input[type="submit"] {
+  border: none;
+  outline: none;
+  height: 40px;
+  background: #1c8adb;
+  color: #fff;
+  font-size: 18px;
+  border-radius: 20px
+}
+
+.loginBox input[type="submit"]:hover {
+  cursor: pointer;
+  background: #39dc79;
+  color: #000
+}
+
+.loginBox a {
+  text-decoration: none;
+  font-size: 14px;
+  color: #fff
+}
+
+.loginBox a:hover {
+  color: #39dc79
+}
+
+nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 8vh;
+  background-color: rgb(0, 0, 0);
+  font-family: 'poppins', sans-serif
+}
+
+#navbarMenu1 li {
+  color: rgb(226,226,226);
+  letter-spacing: 5px;
+  font-size: 20px;
+  font-family: 'poppins', sans-serif;
+}
+
+.logo a {
+  color: rgb(226,226,226);
+  letter-spacing: 5px;
+  font-size: 20px;
+  font-family: 'poppins', sans-serif;
+}
+
+
+#navbarMenu {
+  color: rgb(226,226,226);
+  text-decoration: none;
+  letter-spacing: 2px;
+  font-size: 12px;
+  font-weight: bold
+}
+
+#navbarMenu a {
+  color: rgb(226,226,226);
+  text-decoration: none;
+  letter-spacing: 2px;
+  font-size: 12px;
+  font-weight: bold
+}
+
+#span {
+  background-color: rgb(226,226,226) 
+}
+
+.errorMessage {
+  color: red
+}
