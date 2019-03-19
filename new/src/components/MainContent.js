@@ -17,7 +17,7 @@ function MainContent () {
                             <h1>Take a vacation</h1>
                         </div>
                         <div className="card">
-                            <img src="./components/images/medicine.jpg" alt="card-img" className="card-img" />
+                            <img src=".new/src/components/images/medicine.jpg" alt="card-img" className="card-img" />
                             <h1>Go for a medical check-up</h1>
                         </div>
                         <div className="card">
