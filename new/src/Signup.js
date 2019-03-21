@@ -1,5 +1,6 @@
 import React from "react";
 import LoginHeader from "./LoginHeader";
+import LoginFooter from "./LoginFooter"
 import SignupForm from "./SignupForm";
 
 function Signup() {
@@ -7,6 +8,7 @@ function Signup() {
     <div>
       <LoginHeader />
       <SignupForm />
+      <LoginFooter />
     </div>
   )
 }

@@ -1,18 +1,5 @@
 import React, { Component } from 'react';
-
-const emailRegex = RegExp(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)
-
-const formValid = ({formErrors, ...rest}) => {
-  let valid = true;
-
-  // validate form errors being empty
-  Object.value(formErrors).forEach(val => {val.length > 0 && (valid = false);});
-
-  // validate the form was filled out
-  Object.values(rest).forEach(val => {val === null && (valid = false);});
-
-  return valid;
-}
+import FormValidator from "./FormValidator"
 
 class SignupForm extends Component {
   constructor(props) {
@@ -68,7 +55,7 @@ class SignupForm extends Component {
         formErrors.firstName = value.length < 2 && value.length > 0 ? "minimum 2 characters required" : "";
         break;
       case 'lastName': 
-        formErrors.firstName = value.length < 2 && value.length > 0 ? "minimum 2 characters required" : "";
+        formErrors.lastName = value.length < 2 && value.length > 0 ? "minimum 2 characters required" : "";
         break;
       case 'email':
         formErrors.email = emailRegex.test(value) && value.length > 0 ? "" : "invalid email address";

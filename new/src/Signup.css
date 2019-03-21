@@ -17,15 +17,11 @@ body {
 
 .loginBox {
 width: 500px;
-height: 960px;
 background: rgba(0,0,0,0.5);
 color: #fff;
-top: 50%;
-left: 50%;
-position: absolute;
-transform: translate(-50%, -50%);
 box-sizing: border-box  ;
-padding: 70px 30px
+padding: 70px 30px;
+margin: 30px auto
 }
 
 h1 {
@@ -137,4 +133,16 @@ nav {
 
 .errorMessage {
   color: red
+}
+
+.Footer {
+  display: flex;
+  justify-content: center;
+  padding: 2px;
+  background-color: rgb(0, 0, 0);
+  color: rgb(245, 245, 245);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0
 }

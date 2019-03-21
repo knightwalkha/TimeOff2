@@ -13,15 +13,15 @@ function MainContent () {
                     <h1 className="heading">Take that leave</h1>
                     <div className="card-wrapper">
                         <div className="card">
-                            <img src="./components/images/vacation.jpg" alt="card img" className="card-img" />
+                            <img src="/images/vacation.jpg" alt="card img" className="card-img" />
                             <h1>Take a vacation</h1>
                         </div>
                         <div className="card">
-                            <img src=".new/src/components/images/medicine.jpg" alt="card-img" className="card-img" />
+                            <img src="/images/medicine.jpg" alt="card-img" className="card-img" />
                             <h1>Go for a medical check-up</h1>
                         </div>
                         <div className="card">
-                            <img src="./components/images/wedding2.jpg" alt="card img" className="card-img" />
+                            <img src="/images/vacation.jpg" alt="card img" className="card-img" />
                             <h1>Getting married</h1>
                         </div>
                     </div>

@@ -134,3 +134,7 @@ nav {
 #span {
     background-color: rgb(226,226,226) 
 }
+
+.errorMessage {
+    color: red
+  }

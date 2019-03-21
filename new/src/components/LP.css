@@ -18,6 +18,7 @@ nav {
     letter-spacing: 5px;
     font-size: 20px;
     font-family: 'poppins', sans-serif;
+    outline-color: rgb(226,226,226)
 }
 
 .logo a {
@@ -41,7 +42,7 @@ nav {
     text-decoration: none;
     letter-spacing: 2px;
     font-size: 12px;
-    font-weight: bold
+    font-weight: bold;
 }
 
 #span {
