@@ -6,11 +6,11 @@ function MainContent () {
             <h1><strong>TimeOff.Management</strong></h1>
             <h2>Open Source,simple yet powerful absence management software for small and medium size businesses.</h2>
             <p>
-                <a class="btn btn-primary btn-lg" href="./Signup">Sign Up</a>
+                <a class="btn btn-primary btn-lg" href="./Signup.js">Sign Up</a>
             </p>
             <section>
                 <div className="container">
-                    <h1 className="heading">Take that leave</h1>
+                    <h1 className="heading">Take that leave...</h1>
                     <div className="card-wrapper">
                         <div className="card">
                             <img src="/images/vacation.jpg" alt="card img" className="card-img" />
@@ -21,7 +21,7 @@ function MainContent () {
                             <h1>Go for a medical check-up</h1>
                         </div>
                         <div className="card">
-                            <img src="/images/vacation.jpg" alt="card img" className="card-img" />
+                            <img src="/images/wedding2.jpg" alt="card img" className="card-img" />
                             <h1>Getting married</h1>
                         </div>
                     </div>

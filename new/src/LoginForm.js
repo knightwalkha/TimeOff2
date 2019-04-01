@@ -69,7 +69,7 @@ class LoginForm extends Component {
       <h1>Log In Here</h1>
       <form className="needs-validation position" novalidate>
           <p>Employee email</p>
-          <input type="email" className="form-control" id="loginMail" name="loginmail" onChange={this.handleInputChange} placeholder="Enter Employee email Here" />
+          <input type="email" className="form-control" id="loginMail" name="loginmail" onChange={this.handleInputChange} placeholder="Enter Employee email Here" required />
           <span className="errorMessage">{validateLogin.loginmail.message}
           </span>
           <p>Password</p>
@@ -77,7 +77,7 @@ class LoginForm extends Component {
           <span className="errorMessage">{validateLogin.loginpassword.message}
           </span>
           <input type="submit" name="login" onClick={this.handleFormSubmit} value="Login" />
-          <a href="/">Forgot Password?<span></span>|<span></span>Register new company</a>
+          <a href="./Dashboard.js">Forgot Password?<span></span>|<span></span>Register new company</a>
       </form>
   </div>
     );

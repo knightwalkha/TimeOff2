@@ -5,112 +5,142 @@ class SignupForm extends Component {
   constructor(props) {
     super(props);
 
+    this.validator = new FormValidator([
+      {
+        field: 'signupCompanyname',
+        method: 'isEmpty',
+        validWhen: false,
+        message: 'Company name is required.'
+      },
+      {
+        field: 'signupCompanyname',
+        method: 'isAlphanumeric',
+        validWhen: false,
+        message: 'Invalid entry.'
+      },
+      {
+        field: 'signupFirstname',
+        method: 'isEmpty',
+        validWhen: false,
+        message: 'Firstname is required.'
+      },
+      {
+        field: 'signupFirstname',
+        method: 'isAlpha',
+        validWhen: true,
+        message: 'Enter alphabets only.'
+      },
+      {
+        field: 'signupLastname',
+        method: 'isEmpty',
+        validWhen: false,
+        message: 'Lastname is required.'
+      },
+      {
+        field: 'signupLastname',
+        method: 'isAlpha',
+        validWhen: true,
+        message: 'Enter alphabets only.'
+      },
+      {
+        field: 'signupEmail',
+        method: 'isEmpty',
+        validWhen: false,
+        message: 'Emailis required.'
+      },
+      {
+        field: 'signupEmail',
+        method: 'isEmail',
+        validWhen: true,
+        message: 'This is not a valid email.'
+      },
+      {
+        field: 'signupPassword',
+        method: 'isEmpty',
+        validWhen: false,
+        message: 'Password is required.'
+      },
+      {
+        field: 'signupPasswordConfirm',
+        method: 'isEmpty',
+        validWhen: false,
+        message: 'Retype Password.'
+      },
+      {
+        field: 'signupPasswordConfirm',
+        method: this.passwordMatch,
+        validWhen: true,
+        message: 'Password do not match.'
+      }
+    ]);
+
     this.state = {
-      companyName: null,
-      firstName: null,
-      lastName: null,
-      email: null,
-      password: null,
-      formErrors: {
-      companyName: "",
-      firstName: "",
-      lastName: "",
-      email: "",
-      password: "",
-      confirmPassword: ""
-    }
-  };
-}
-
-  handleSubmit = e => {
-    e.preventDefault();
-
-    if(formValid(this.state)) {
-      console.log(`
-      --SUBMITTING--
-      Company Name: ${this.state.companyName}
-      First Name: ${this.state.firstName}
-      Last Name: ${this.state.lastName}
-      Email: ${this.state.email}
-      Password: ${this.state.password}
-      Confirm Password: ${this.state.confirmPassword}
-      Country: ${this.state.country}
-      Time Zone: ${this.state.timeZone}
-      `);
-    } else {
-      console.error("FORM INVALID - DISPLAY ERROR MESSAGE")
-    }
-  };
-
-  handleChange = e => {
-    e.preventDefault();
-    const {name, value} = e.target;
-    let formErrors = this.state.formErrors;
-
-    switch (name) {
-      case 'companyName': 
-        formErrors.companyName = value.length < 2 && value.length > 0 ? "minimum 2 characters required" : "";
-        break;
-      case 'firstName': 
-        formErrors.firstName = value.length < 2 && value.length > 0 ? "minimum 2 characters required" : "";
-        break;
-      case 'lastName': 
-        formErrors.lastName = value.length < 2 && value.length > 0 ? "minimum 2 characters required" : "";
-        break;
-      case 'email':
-        formErrors.email = emailRegex.test(value) && value.length > 0 ? "" : "invalid email address";
-        break;
-      case 'password':
-        formErrors.pasword = value.length < 2 && value.length > 0 ? "minimum 2 characters required" : "";
-        break;
-      case 'confirmPassword':
-        formErrors.pasword = value.length < 2 && value.length > 0 ? "minimum 2 characters required" : "";
-        break;
-      default:
-        break;
+      signupCompanyname: '',
+      signupFirstname: '',
+      signupLastname: '',
+      signupEmail: '',
+      signupPassword: '',
+      signupPasswordConfirm: '',
+      validation: this.validator.valid()
     }
 
-    this.setState({ formErrors, [name]: value }, () => console.log(this.state));
-  };
+    this.submitted = false;
+  }
 
+  passwordMatch = (confirmation, state) => (state.password === confirmation)
+
+  handleInputChange = event => {
+    event.preventDefault();
+
+    this.setState({[event.target.name]: event.target.value,});
+  }
+
+  handleFormSubmit = event => {
+    event.preventDefault();
+
+    const validation = this.validator.validate(this.state);
+    this.setState({ validation });
+    this.submitted = true;
+
+    if (validation.isValid) {
+      // Handles actual fom submission
+    }
+  }
+  
   render() {
-    const { formErrors} = this.state;
+    let validateSignup = this.submitted ?
+    this.validator.validate(this.state) :
+    this.state.validation;
 
     return(
       <div className="loginBox">
       <h1><strong>New Company</strong></h1>
       <h4>Register new company account and supervisor user</h4>
-      <form>
-      <p>Company Name</p>
-            <input type="text" className={formErrors.companyName.length > 0 ? "error" : null} placeholder="Enter Company Name" name="CompanyName" noValidate onChange={this.handleChange} />
-            {formErrors.companyName.length > 0 && (
-              <span className="errorMessage">{formErrors.companyName}</span>
-            )}
-            <p>First Name</p>
-            <input type="text" className={formErrors.firstName.length > 0 ? "error" : null} placeholder="Enter First Name" name="firstName" noValidate onChange={this.handleChange} />
-            {formErrors.firstName.length > 0 && (
-              <span className="errorMessage">{formErrors.firstName}</span>
-            )}
-          <p>Last Name</p>
-          <input type="text" className={formErrors.lastName.length > 0 ? "error" : null} placeholder="Enter Last Name" name="lastName" noValidate onChange={this.handleChange} />
-          {formErrors.lastName.length > 0 && (
-              <span className="errorMessage">{formErrors.lastName}</span>
-          )}
-          <p>Email Address</p>
-          <input type="text" className={formErrors.email.length > 0 ? "error" : null} placeholder="Enter Email Here" name="email" noValidate onChange={this.handleChange} />
-          {formErrors.email.length > 0 && (
-              <span className="errorMessage">{formErrors.email}</span>
-          )}
-          <p>Password</p>
-          <input type="password" className={formErrors.password.length > 0 ? "error" : null} placeholder="Enter Password Here" name="password" noValidate onChange={this.handleChange} />
-          {formErrors.password.length > 0 && (
-              <span className="errorMessage">{formErrors.password}</span>
-          )}
-          <p>Confirm Password</p>
-          <input type="password" className={formErrors.confirmPassword.length > 0 ? "error" : null} placeholder="Re-enter Password Here" name="confirmPassword" noValidate onChange={this.handleChange} />
-          {formErrors.confirmPassword.length > 0 && (
-              <span className="errorMessage">{formErrors.confirmPassword}</span>
-          )}
+      <form className="needs-validation position" noValidate>
+        <p>Company Name</p>
+        <input type="text" className="form-control" id="signupCompanyname" name="signupCompanyname" onChange={this.handleInputChange} placeholder="Enter Company Name" required />
+        <span className="errorMessage">{validateSignup.signupCompanyname.message}
+        </span>
+        <p>First Name</p>
+        <input type="text" className="form-control" id="signupFirstname" name="signupFirstname" onChange={this.handleInputChange} placeholder="Enter First Name" required />
+        <span className="errorMessage">{validateSignup.signupFirstname.message}
+        </span>
+        <p>Last Name</p>
+        <input type="text" className="form-control" id="signupLastname" name="signupLastname" onChange={this.handleInputChange} placeholder="Enter Last Name" required />
+        <span className="errorMessage">{validateSignup.signupLastname.message}
+        </span>
+        <p>Email Address</p>
+        <input type="text" className="form-control" id="signupEmail" name="signupEmail" onChange={this.handleInputChange} placeholder="Enter Email" required />
+        <span className="errorMessage">{validateSignup.signupEmail.message}
+        </span>
+        <p>Password</p>
+        <input type="password" className="form-control" id="signupPassword" name="signupPassword" onChange={this.handleInputChange} placeholder="Enter Password" required />
+        <span className="errorMessage">{validateSignup.signupPassword.message}
+        </span>
+        <p>Confirm Password</p>
+        <input type="password" className="form-control" id="signupPasswordConfirm" name="signupPasswordConfirm" onChange={this.handleInputChange} placeholder="Re-type Password" required />
+        <span className="errorMessage">{validateSignup.signupPasswordConfirm.message}
+        </span>
           <div>
           <label for="country">Country</label>
           <select name="country" class="form-control" id="country">
@@ -373,7 +403,7 @@ class SignupForm extends Component {
                 </select>
             </div>
             <br />
-          <input type="submit" name="" value="Login" />
+          <input type="submit" name="login" onClick={this.handleFormSubmit} value="Login" />
           <a href="/">Forgot Password?<span></span>|<span></span>Register new company</a>
       </form>
   </div>
